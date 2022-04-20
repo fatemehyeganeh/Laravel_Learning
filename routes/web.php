@@ -55,3 +55,4 @@ Route::delete('admin/posts/{post}',[PostController::class,'destroy']);
 
 
 Route::resource('posts', 'PostController');
+
