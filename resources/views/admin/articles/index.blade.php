@@ -15,7 +15,6 @@
             @foreach($rows as $row)
                 <tr>
                     <td>
-                        <a href="/../showuser/{{$row->id}}">show user</a><br/>
                         <a href="/../emailuser/{{$row->id}}">Email</a><br/>
                     </td>
                     @foreach($columns as $column)
@@ -29,7 +28,7 @@
                         </form>
                     </td>
                     <td>
-                        <form action="/admin/articles/{{$row->id}}/delete" method="post">
+                        <form action="/admin/articles/{{$row->id}}" method="post">
                             @csrf
                             @method('delete')
                             <button class="btn btn-danger">delete</button>

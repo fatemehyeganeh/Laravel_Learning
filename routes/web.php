@@ -29,16 +29,17 @@ Route::get('admin/users/create', [Admin\UserController::class,'create']);
 Route::post('admin/users/create', [Admin\UserController::class,'store']);
 Route::get('admin/users/{user}/articles',[Admin\UserController::class,'show']);
 Route::get('admin/users/{user}/sendmail',[Admin\UserController::class,'sendmail']);
+Route::post('admin/users/{user}/sendmail',[Admin\UserController::class,'sendmail']);
 Route::delete('admin/users/{user}',[Admin\UserController::class,'destroy']);
 
 
-
 Route::get('admin/articles/index', [Admin\ArticleController::class,'index']);
+Route::delete('admin/articles/{article}',[Admin\ArticleController::class,'destroy']);
 
-Route::get('showuser/{user_id}',function($id){
-    $users=User::all();
-    return($users->find($id)->name);
-});
+
+
+
+
 
 Route::get('emailuser/{user}',[UserController::class,'mailForm']);
 Route::post('admin/sendmail',[UserController::class,'mailuser']);
@@ -49,10 +50,8 @@ Route::post('contact/{contact}',[ContactController::class,'store']);
 Route::get('admin/articles/create',[ArticleController::class,'create']);
 Route::post('admin/articles/create',[ArticleController::class,'store']);
 
-Route::delete('admin/articles/{article}',[ArticleController::class,'destroy']);
-Route::delete('admin/users/{user}',[UserController::class,'destroy']);
 Route::delete('admin/posts/{post}',[PostController::class,'destroy']);
 
-Route::post('admin/users/{user}/sendmail',[Admin\UserController::class,'sendmail']);
+
 
 Route::resource('posts', 'PostController');

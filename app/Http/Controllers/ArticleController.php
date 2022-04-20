@@ -71,7 +71,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        $article=Article::find($id);
     }
 
     /**
@@ -82,7 +82,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        $article=Article::find($id);
     }
 
     /**
@@ -103,9 +103,10 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
+        $article=Article::find($id);
         $article->delete();
-        return back();
+        return back()->with('alert', 'IT WORKS!');
     }
 }

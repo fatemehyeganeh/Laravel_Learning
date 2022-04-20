@@ -15,4 +15,10 @@ class ArticleController extends Controller
         return view('admin.Articles.index',['rows' =>Article::all(),'columns'=>$columns],)->withTitle('Articles');
     }
     
+    public function destroy($id)
+    {
+        $article=Article::find($id);
+        $article->delete();
+        return back()->with('alert', 'IT WORKS!');
+    }
 }
